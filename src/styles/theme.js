@@ -1,0 +1,15 @@
+export default {
+  COLORS: {
+    BACKGROUND: "#000A0F",
+    BACKGROUND_HEADER: "#00111A",
+    BACKGROUND_FORM: "#001119",
+    BACKGROUND_INPUT: "#0D1D25",
+    BACKGROUND_CARD: "#00070A",
+
+    WHITE: "#E1E1E6",
+    WHITE_DARK: "#C4C4CC",
+    GRAY_TEXT: "#7C7C8A",
+
+    RED: "#750310",
+  },
+};
