@@ -14,11 +14,10 @@ function AuthProvider({ children }) {
 
       localStorage.setItem("@foodexplorer:user", JSON.stringify(user));
       localStorage.setItem("@foodexplorer:token", token);
-      localStorage.setItem("@foodexplorer:id", user.id);
 
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
-      setData({ user, token, id: user.id });
+      setData({ user, token });
     } catch (err) {
       if (err.response) {
         alert(err.response.data.message);
@@ -31,7 +30,6 @@ function AuthProvider({ children }) {
   function signOut() {
     localStorage.removeItem("@foodexplorer:user");
     localStorage.removeItem("@foodexplorer:token");
-    localStorage.removeItem("@foodexplorer:id");
 
     setData({});
   }
@@ -64,7 +62,6 @@ function AuthProvider({ children }) {
   useEffect(() => {
     const user = localStorage.getItem("@foodexplorer:user");
     const token = localStorage.getItem("@foodexplorer:token");
-    const id = localStorage.getItem("@foodexplorer:id");
 
     if (user && token) {
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -72,7 +69,6 @@ function AuthProvider({ children }) {
       setData({
         user: JSON.parse(user),
         token,
-        id,
       });
     }
   }, []);

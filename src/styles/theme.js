@@ -11,5 +11,6 @@ export default {
     GRAY_TEXT: "#7C7C8A",
 
     RED: "#750310",
+    BLUE: "#82F3FF",
   },
 };
