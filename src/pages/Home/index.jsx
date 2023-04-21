@@ -19,7 +19,6 @@ export function Home() {
   const [mainPlates, setMainPlates] = useState([]);
   const [dessertPlates, setDessertPlates] = useState([]);
   const [drinks, setDrinks] = useState([]);
-  const [allQuantity, setAllQuantity] = useState(0);
 
   useEffect(() => {
     const fetchPlates = async () => {
@@ -48,7 +47,7 @@ export function Home() {
       {user.id == 1 ? (
         <HeaderAdmin setPlates={setPlates} />
       ) : (
-        <Header allQuantity={allQuantity} setPlates={setPlates} />
+        <Header setPlates={setPlates} />
       )}
 
       <Content>

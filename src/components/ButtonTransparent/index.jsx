@@ -1,7 +1,7 @@
 import { Container } from "./styles";
 
 export function ButtonTransparent({
-  title = "",
+  name = "",
   onClick,
   Icon = false,
   iconSize = false,
@@ -11,7 +11,7 @@ export function ButtonTransparent({
   return (
     <Container onClick={onClick} {...rest}>
       {Icon && <Icon size={iconSize} color={iconColor} />}
-      {title}
+      {name}
     </Container>
   );
 }

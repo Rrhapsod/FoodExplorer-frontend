@@ -6,14 +6,7 @@ import { api } from "../../services/api";
 
 import { ButtonTransparent } from "../ButtonTransparent";
 
-export const CardsAdmin = ({
-  name,
-  image,
-  id,
-  description,
-  price,
-  ...rest
-}) => {
+export function CardsAdmin({ name, image, id, description, price, ...rest }) {
   const navigate = useNavigate();
 
   // Change to page details using route params
@@ -48,4 +41,4 @@ export const CardsAdmin = ({
       <h4>R$ {price}</h4>
     </Container>
   );
-};
+}
