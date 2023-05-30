@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { AiOutlineClose } from "react-icons/ai";
+import { BsPencil } from "react-icons/bs";
 
 import { Container } from "./styles";
 import { api } from "../../services/api";
@@ -9,36 +9,30 @@ import { ButtonTransparent } from "../ButtonTransparent";
 export function CardsAdmin({ name, image, id, description, price, ...rest }) {
   const navigate = useNavigate();
 
-  // Change to page details using route params
   const handleDetails = () => {
-    navigate(`/att/${id}`);
+    navigate(`/dish/${id}`);
   };
 
-  const handleDelete = async () => {
-    try {
-      await api.delete(`/dishes/${id}`);
-      return alert("Prato excluído");
-    } catch {
-      return alert("ERROR, favor tentar novamente");
-    }
+  const handleEdit = (id) => {
+    navigate(`/edit/${id}`);
   };
 
   return (
     <Container {...rest}>
       <ButtonTransparent
-        Icon={AiOutlineClose}
+        Icon={BsPencil}
         className="icon"
         iconSize={20}
-        iconColor="red"
-        onClick={handleDelete}
+        iconColor="white"
+        onClick={() => handleEdit(id)}
       />
 
       <img src={`${api.defaults.baseURL}/files/${image}`} alt="dish img" />
 
-      <ButtonTransparent className="name" name={name} onClick={handleDetails} />
+      <ButtonTransparent className="name" title={name} onClick={handleDetails} />
       <p>{description}</p>
 
-      <h4>R$ {price}</h4>
+      <h4>R$ {(price / 100).toFixed(2)}</h4>
     </Container>
   );
 }

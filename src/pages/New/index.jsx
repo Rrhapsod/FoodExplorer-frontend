@@ -7,6 +7,7 @@ import { Container, Content } from "./styles";
 import { api } from "../../services/api";
 
 import { Tag } from "../../components/Tag";
+import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { HeaderAdmin } from "../../components/HeaderAdmin";
 import { ButtonTransparent } from "../../components/ButtonTransparent";
@@ -26,6 +27,10 @@ export function New() {
 
   const options = ["principal", "sobremesa", "bebida"];
   const [category, setCategory] = useState(options[0]);
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   const handleAddIngredient = () => {
     setIngredients((prevState) => [...prevState, newIngredient]);
@@ -47,9 +52,7 @@ export function New() {
 
   const handleCreate = async () => {
     if (newIngredient.length > 0) {
-      return alert(
-        "Existem ingredientes pendentes, que não foram adicionados ainda."
-      );
+      return alert("Existem ingredientes que não foram adicionados.");
     }
 
     if (!name || !price || !description || !category || !image) {
@@ -58,7 +61,7 @@ export function New() {
 
     const response = await api.post("/dishes", {
       name,
-      price,
+      price: price * 100,
       description,
       category,
       ingredients,
@@ -84,6 +87,7 @@ export function New() {
           Icon={MdOutlineArrowBackIos}
           iconSize={20}
           title="voltar"
+          onClick={handleGoBack}
         />
 
         <div>
@@ -175,9 +179,7 @@ export function New() {
               </div>
             </div>
 
-            <button className="add" type="button" onClick={handleCreate}>
-              Criar Prato
-            </button>
+            <Button title="Salvar prato" onClick={handleCreate} />
           </form>
         </div>
       </Content>

@@ -14,10 +14,11 @@ export const Container = styled.header`
     justify-content: space-evenly;
   }
   .nav-menu {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr;
+    display: flex;
+    justify-content: center;
     align-items: center;
     gap: 50px;
+    list-style-type: none;
   }
   .menu {
     display: none;
@@ -40,7 +41,7 @@ export const Container = styled.header`
   }
   .search {
     grid-area: search;
-    width: 100%;
+    width: 30rem;
     display: flex;
     align-items: center;
     background-color: #0d1d25;
@@ -96,6 +97,11 @@ export const Container = styled.header`
     .nav-menu.active {
       top: 70px;
     }
+
+    .search {
+      width: 100%;
+    }
+
     .new,
     .exit {
       margin: 0 auto;

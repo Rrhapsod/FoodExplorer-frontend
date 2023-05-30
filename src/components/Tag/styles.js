@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 20%;
   input {
     width: 100%;
-    padding: 8px;
+    padding: 1rem;
     color: ${({ theme }) => theme.COLORS.WHITE_DARK};
     background: ${({ isNew }) => (isNew ? "transparent" : "#76797B")};
     font-size: 1.2rem;

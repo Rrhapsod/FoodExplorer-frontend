@@ -13,7 +13,7 @@ export function Cards({ name, image, id, description, price, ...rest }) {
   const [quantity, setQuantity] = useState(1);
 
   const handleDetails = () => {
-    navigate(`/details/${id}`);
+    navigate(`/dish/${id}`);
   };
 
   const handleAddQuantity = () => {
@@ -32,10 +32,10 @@ export function Cards({ name, image, id, description, price, ...rest }) {
     <Container {...rest}>
       <img src={`${api.defaults.baseURL}/files/${image}`} alt="plate img" />
 
-      <ButtonTransparent className="name" name={name} onClick={handleDetails} />
+      <ButtonTransparent className="name" title={name} onClick={handleDetails} />
       <p>{description}</p>
 
-      <h4>R$ {price}</h4>
+      <h4>R$ {price / 100}</h4>
 
       <div className="quantity">
         <div>

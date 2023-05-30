@@ -14,10 +14,11 @@ export const Container = styled.header`
     justify-content: space-evenly;
   }
   .nav-menu {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+    display: flex;
+    justify-content: center;
     align-items: center;
     gap: 50px;
+    list-style-type: none;
   }
   .menu {
     display: none;

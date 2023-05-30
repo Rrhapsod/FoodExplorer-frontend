@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Spin as Hamburger } from "hamburger-react";
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch, AiOutlineShoppingCart} from "react-icons/ai";
 import { ImExit } from "react-icons/im";
 import { BsHexagonFill } from "react-icons/bs";
 
@@ -10,6 +10,7 @@ import { useAuth } from "../../hooks/auth.jsx";
 import { api } from "../../services/api";
 
 import { ButtonTransparent } from "../ButtonTransparent";
+import { Button } from "../Button";
 
 export function Header({ setPlates }) {
   const navigate = useNavigate();
@@ -69,6 +70,14 @@ export function Header({ setPlates }) {
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
+          </li>
+          <li className="nav-item">
+            <Button
+              className="new "
+              title="Pedidos (0)"
+              Icon={AiOutlineShoppingCart}
+              iconSize={20}
+            />
           </li>
           <li className="nav-item">
             <ButtonTransparent

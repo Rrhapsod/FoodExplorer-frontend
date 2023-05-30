@@ -11,8 +11,9 @@ export const Container = styled.div`
   input {
     width: 100%;
     padding: 10px;
-    background: transparent;
-    border: 1px solid ${({ theme }) => theme.COLORS.GRAY_TEXT};
+    outline: none;
+    background: ${({ theme }) => theme.COLORS.BACKGROUND_INPUT};
+    border: none;
     border-radius: 5px;
     font-size: 1.4rem;
     font-weight: 500;

@@ -10,6 +10,7 @@ import { useAuth } from "../../hooks/auth.jsx";
 import { api } from "../../services/api";
 
 import { ButtonTransparent } from "../ButtonTransparent";
+import { Button } from "../Button";
 
 export function HeaderAdmin({ setPlates = () => {} }) {
   const { signOut } = useAuth();
@@ -70,23 +71,24 @@ export function HeaderAdmin({ setPlates = () => {} }) {
 
         <ul className={active ? "nav-menu active" : "nav-menu "}>
           <li className="nav-item">
-            <ButtonTransparent
+            <div className="search ">
+              <AiOutlineSearch size={20} color="#C4C4C4" />
+              <input
+                type="text"
+                placeholder="Busque por pratos ou ingredientes"
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
+          </li>
+
+          <li className="nav-item">
+            <Button
               className="new "
               title="Novo Prato"
               onClick={handleNewPlate}
               Icon={AiOutlinePlus}
               iconSize={20}
             />
-          </li>
-          <li className="nav-item">
-            <div className="search ">
-              <AiOutlineSearch size={20} color="#C4C4C4" />
-              <input
-                type="text"
-                placeholder="Busque pelas opções de pratos"
-                onChange={(e) => setSearch(e.target.value)}
-              />
-            </div>
           </li>
 
           <li className="nav-item">
